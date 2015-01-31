@@ -1,5 +1,6 @@
 [package]
 
-name = "groot-programming"
+name = "groot"
+description = "The Groot Programming Language"
 version = "0.0.1"
 authors = ["thiagopnts <thiagopnts@gmail.com>"]
