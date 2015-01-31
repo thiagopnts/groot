@@ -15,8 +15,6 @@ impl Tokenizer {
         let mut ops = vec!();
         for word in self.words.clone().iter() {
             self.buf.push_str(word.as_slice());
-            println!("current buf: {}", self.buf);
-            println!("misses: {}", self.misses);
             match self.buf.clone().to_op() {
                 Op::Increment => self.push_op(&mut ops, Op::Increment),
                 Op::Decrement => self.push_op(&mut ops, Op::Decrement),
@@ -42,6 +40,4 @@ impl Tokenizer {
         self.buf = "".to_string();
     }
 }
-
-
 
