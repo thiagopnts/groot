@@ -6,6 +6,7 @@ pub enum Op {
     Output,
     Right,
     Left,
+    Input,
     Jump,
     JumpBack,
     Unknown,
@@ -25,6 +26,7 @@ impl ToOp for String {
             "Iamgroot" => Op::Left,
             "I'mGroot" => Op::Jump,
             "WeareGroot" => Op::JumpBack,
+            "Iamgrooot" => Op::Input,
             _ => Op::Unknown,
         }
     }

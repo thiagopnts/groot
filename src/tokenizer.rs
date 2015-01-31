@@ -23,10 +23,11 @@ impl Tokenizer {
                 Op::Left      => self.push_op(&mut ops, Op::Left),
                 Op::Jump      => self.push_op(&mut ops, Op::Jump),
                 Op::JumpBack  => self.push_op(&mut ops, Op::JumpBack),
+                Op::Input  => self.push_op(&mut ops, Op::Input),
                 Op::Unknown   => {
                     self.misses += 1;
                     if self.misses == 3 {
-                        panic!("syntax error unknow token `{}`", self.buf);
+                        panic!("syntax error unknown token `{}`", self.buf);
                     }
                 },
             }

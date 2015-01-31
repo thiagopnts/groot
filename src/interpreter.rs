@@ -1,3 +1,4 @@
+use std::old_io::stdin;
 use operations::Op;
 
 pub struct Interpreter {
@@ -21,6 +22,7 @@ impl Interpreter {
                 Op::Output    => self.output(),
                 Op::Right     => self.right(),
                 Op::Left      => self.left(),
+                Op::Input     => self.input(),
                 Op::Jump      => self.jump(&mut program_counter),
                 Op::JumpBack  => self.jump_back(&mut program_counter),
                 _ => panic!("boom"),
@@ -36,6 +38,10 @@ impl Interpreter {
 
     fn right(&mut self) {
         self.pointer += 1;
+    }
+
+    fn input(&mut self) {
+        self.memory[self.pointer as usize] = stdin().read_char().ok().expect("Error reading user input") as u8;
     }
 
     fn increment(&mut self) {
