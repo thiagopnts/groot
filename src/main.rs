@@ -1,3 +1,5 @@
+#![allow(unstable)]
+
 use std::os;
 use std::str::StrExt;
 use std::old_io::File;
@@ -21,7 +23,7 @@ fn main() {
                     let mut interpreter = Interpreter::new(ops);
                     interpreter.run();
                 },
-                IoError => panic!("io error"),
+                Err(error) => panic!("{}", error),
             }
         },
         None => println!("Usage: groot file.groot"),
