@@ -16,8 +16,8 @@ fn main() {
         Some(ref filename) => {
             match File::open(&Path::new(filename)).read_to_string() {
                 Ok(s) => {
-                    // TODO: I think we can make it simpler
-                    let words: Vec<String> = s.replace("\n", " ").split(' ').collect::<Vec<&str>>().iter().map(|s| (*s).to_string()).collect();
+                    let content = s.replace("\n", " ");
+                    let words = content.split(' ').collect::<Vec<&str>>();
                     let mut tokenizer = Tokenizer::new(words);
                     let ops = tokenizer.tokenize();
                     let mut interpreter = Interpreter::new(ops);

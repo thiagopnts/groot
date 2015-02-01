@@ -1,18 +1,18 @@
 use operations::{Op, ToOp};
 
-pub struct Tokenizer {
-    words: Vec<String>,
+pub struct Tokenizer<'a> {
+    words: Vec<&'a str>,
     misses: u64,
     buf: String,
 }
 
-impl Tokenizer {
-    pub fn new(words: Vec<String>) -> Tokenizer {
+impl<'a> Tokenizer<'a> {
+    pub fn new(words: Vec<&'a str>) -> Tokenizer<'a> {
         Tokenizer { words: words, misses: 0, buf: "".to_string() }
     }
 
     pub fn tokenize(&mut self) -> Vec<Op> {
-        let mut ops = vec!();
+        let mut ops = vec![];
         for word in self.words.clone().iter() {
             self.buf.push_str(word.as_slice());
             match self.buf.clone().to_op() {
