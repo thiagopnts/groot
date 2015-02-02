@@ -1,4 +1,4 @@
-#![allow(unstable)]
+#![feature(io, path, os, core, collections)]
 
 use std::os;
 use std::str::StrExt;
