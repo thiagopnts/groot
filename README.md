@@ -16,7 +16,7 @@ phrase|meaning|
 `I am groot`|decrement the data pointer.|
 `I am grooot`|accept one byte of input.|
 `I'm Groot`|if the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching `We are Groot` command.|
-`We are Groot`|if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching `I'm groot` command.|
+`We are Groot`|if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching `I'm Groot` command.|
 
 ### Building
 
