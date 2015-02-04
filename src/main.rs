@@ -1,4 +1,4 @@
-#![feature(io, path, os, core, collections)]
+#![feature(io, path, os, core)]
 
 use std::os;
 use std::str::StrExt;
