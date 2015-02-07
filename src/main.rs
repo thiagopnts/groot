@@ -1,6 +1,6 @@
-#![feature(io, path, os, core)]
+#![feature(io, path, env, os, core)]
 
-use std::os;
+use std::env;
 use std::str::StrExt;
 use std::old_io::File;
 use tokenizer::Tokenizer;
@@ -11,10 +11,11 @@ mod operations;
 mod interpreter;
 
 fn main() {
-    let arguments = os::args();
-    match arguments.get(1) {
-        Some(ref filename) => {
-            match File::open(&Path::new(filename)).read_to_string() {
+    let mut arguments = env::args();
+    arguments.next();
+    match arguments.next() {
+        Some(filename) => {
+            match File::open(&Path::new(filename.into_string().unwrap())).read_to_string() {
                 Ok(s) => {
                     let content = s.replace("\n", " ");
                     let words = content.split(' ').collect::<Vec<&str>>();
