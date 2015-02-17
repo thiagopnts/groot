@@ -15,7 +15,7 @@ fn main() {
     arguments.next();
     match arguments.next() {
         Some(filename) => {
-            match File::open(&Path::new(filename.into_string().unwrap())).read_to_string() {
+            match File::open(&Path::new(filename)).read_to_string() {
                 Ok(s) => {
                     let content = s.replace("\n", " ");
                     let words = content.split(' ').collect::<Vec<&str>>();
