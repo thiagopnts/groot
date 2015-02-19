@@ -1,4 +1,4 @@
-#![feature(io, path, env, os, core)]
+#![feature(old_io, path, env, os, core)]
 
 use std::env;
 use std::str::StrExt;
