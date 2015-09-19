@@ -1,4 +1,4 @@
-use std::old_io::stdin;
+use std::io::{Read, stdin};
 use operations::Op;
 
 pub struct Interpreter {
@@ -41,7 +41,11 @@ impl Interpreter {
     }
 
     fn input(&mut self) {
-        self.memory[self.pointer as usize] = stdin().read_char().ok().expect("Error reading user input") as u8;
+        let mut input = String::new();
+        stdin()
+            .read_line(&mut input).ok().expect("Error reading user input");
+
+        self.memory[self.pointer as usize] = input.bytes().next().expect("no byte read") as u8;
     }
 
     fn increment(&mut self) {

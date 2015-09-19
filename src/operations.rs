@@ -18,7 +18,7 @@ pub trait ToOp {
 
 impl ToOp for String {
     fn to_op(&self) -> Op {
-        match self.as_slice() {
+        match self.as_str() {
             "iamgroot" => Op::Increment,
             "IamGroot" => Op::Decrement,
             "IAMGROOOT" => Op::Output,

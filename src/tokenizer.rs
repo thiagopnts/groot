@@ -14,7 +14,7 @@ impl<'a> Tokenizer<'a> {
     pub fn tokenize(&mut self) -> Vec<Op> {
         let mut ops = vec![];
         for word in self.words.clone().iter() {
-            self.buf.push_str(word.as_slice());
+            self.buf.push_str(word);
             match self.buf.clone().to_op() {
                 Op::Increment => self.push_op(&mut ops, Op::Increment),
                 Op::Decrement => self.push_op(&mut ops, Op::Decrement),
