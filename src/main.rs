@@ -1,3 +1,4 @@
+#![feature(convert)]
 
 use std::env;
 use std::fs::File;
